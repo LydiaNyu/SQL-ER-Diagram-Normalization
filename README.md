@@ -1,3 +1,6 @@
+## Introduction
+This is a school data homework aimed to use sql to inspect tables, create ER Diagrams and then do Normalization.
+
 ## Part 1: Create an ER Diagram by inspecting tables
 ![myERforpart1](img/part1_nation_subset_er_diagram.jpg)
 1. table languages has a one to many relationship with table country_languages
@@ -10,7 +13,8 @@
    since TABLE "countries" CONSTRAINT "countries_ibfk_1" FOREIGN KEY (region_id) REFERENCES regions(region_id)
 5. table continents has a one to many relationship with table regions
    since TABLE "regions" CONSTRAINT "regions_ibfk_1" FOREIGN KEY (continent_id) REFERENCES continents(continent_id)
-   
+## Part 2: Run Queries
+Look at `part2_queries.sql`.  
 ## Part 3: Examine a data set and create a normalized data model to store the data
 ![myERforpart3](img/part3_03_caers_er_diagram.jpg)
 Since the primary key is composed of report_id, product_type, product, product_code. And all other columns are not 
