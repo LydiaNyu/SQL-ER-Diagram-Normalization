@@ -1,0 +1,17 @@
+SELECT report_id, UPPER(product) from staging_caers_events
+where patient_age is not null and patient_age = 75 and age_units ilike 'year%'
+order by report_id;
+
+EXPLAIN ANALYZE SELECT report_id, UPPER(product) from staging_caers_events
+where patient_age is not null and patient_age = 75 and age_units ilike 'year%'
+order by report_id;
+
+ Sort  (cost=2108.36..2108.84 rows=192 width=39) (actual time=15.459..15.497 rows=561 loops=1)
+   Sort Key: report_id
+   Sort Method: quicksort  Memory: 76kB
+   ->  Seq Scan on staging_caers_events  (cost=0.00..2101.08 rows=192 width=39) (actual time=0.077..15.133 rows=561 loops=1)
+         Filter: ((patient_age IS NOT NULL) AND ((age_units)::text ~~* 'year%'::text) AND (patient_age = 75))
+         Rows Removed by Filter: 49879
+ Planning Time: 0.310 ms
+ Execution Time: 16.070 ms
+(8 rows)

@@ -1,0 +1,1 @@
+\copy staging_caers_events(report_id, caers_created_date, date_of_event, product_type, product, product_code, description, patient_age, age_units, sex, terms, outcomes) FROM '/Users/sirutao/Documents/GitHub/LydiaNyu-homework06/CAERS_ASCII_11_14_to_12_17.csv' (format csv, header, encoding 'LATIN1')
